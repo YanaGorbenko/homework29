@@ -42,8 +42,6 @@ describe('Тестування функцій користувача за доп
 
   it('Функція filterAdults повертає тільки повнолітніх користувачів або порожній масив, якщо їх немає', () => {
     expect(filterAdults(users1)).toEqual(users1Adult);
-    expect(filterAdults(users1)).toContain({ name: 'Paul', age: 74 });
-    expect(filterAdults(users1)).toContain({ name: 'Margo', age: 22 });
     expect(filterAdults(users2)).toEqual([]);
   });
 
@@ -51,5 +49,10 @@ describe('Тестування функцій користувача за доп
     expect(getUserNames(users1)).toEqual(['Paul', 'Rick', 'Margo', 'Inna']);
     expect(getUserNames(users2)).toEqual(['Kate', 'Alex', 'Maria', 'Inna']);
     expect(getUserNames([])).toEqual([]);
+
+    expect(getUserNames(users1)).toContain('Paul');
+    expect(getUserNames(users1)).toContain('Margo');
+    expect(getUserNames(users2)).toContain('Kate');
+    expect(getUserNames(users2)).toContain('Inna');
   });
 });
